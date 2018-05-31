@@ -1,6 +1,16 @@
 open System
 open System.IO
 
+(*-- 
+You can download the consul executable from https://www.consul.io/downloads.html
+Once you have downloaded you can watch key value updates and push it to log using the below script.
+
+typically used like this:
+
+consul.exe watch -http-addr="server_which_runs_consul:port" -type=keyprefix -prefix="key_prefix_to_watch_goes_here" "fsi consul_watcher.fsx"
+
+consul_watcher.fsx in the above usage is this below script. This nicely parses and logs what has changed in the entire prefix blob.
+--*)
 
 (*-- utility functions start --*)
 
