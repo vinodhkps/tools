@@ -1,5 +1,6 @@
 FROM ubuntu:16.04
 
+# Install Python
 RUN apt-get update \
   && apt-get install -y python3-pip python3-dev \
   && cd /usr/local/bin \
@@ -7,6 +8,7 @@ RUN apt-get update \
   && pip3 install --upgrade pip
   
 
+# Install Additional Tools
 RUN apt-get update && apt-get install -y \
     curl apt-utils apt-transport-https debconf-utils gcc build-essential \
     && rm -rf /var/lib/apt/lists/*  
@@ -49,5 +51,5 @@ WORKDIR /app
 # Copy the contents to the app folder
 ADD . /app
 
-# Run app.py when the container launches
+# Run a_sample_scrape.py when the container launches
 CMD ["python", "a_sample_scrape.py"]	
